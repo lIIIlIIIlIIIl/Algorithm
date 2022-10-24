@@ -6,7 +6,7 @@ function solution(money) {
     // 남은 돈 -> money - (5500 * (money/5500))
     
     let answer = [];
-    answer[0] = parseInt(money / 5500);
-    answer[1] = money - (5500 * answer[0]);
+    answer[0] = Math.floor(money / 5500);
+    answer[1] = money % 5500;
     return answer;
 }
