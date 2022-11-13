@@ -1,6 +1,6 @@
 function solution(my_string) {
     let answer = 0;
-    let a = my_string.split('').filter((el) => {
+    my_string.split('').filter((el) => {
         return !isNaN(el)
     }).map((el)=>{
         answer+=Number(el);
