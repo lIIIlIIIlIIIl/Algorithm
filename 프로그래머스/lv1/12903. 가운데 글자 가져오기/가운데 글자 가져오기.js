@@ -1,5 +1,4 @@
 function solution(s) {
-    let answer = '';
     let strLength = s.length;
     
     if(strLength % 2 === 0){
