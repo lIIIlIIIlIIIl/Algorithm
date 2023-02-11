@@ -1,7 +1,7 @@
 function solution(d, budget) {
     let totalPrice = d.reduce((acc,cur)=>acc+cur,0);
     let sortD = d.sort((a,b) => b-a);
-    let priceArr = [];
+    let answer = 0;
     
     if(totalPrice <= budget){
         return d.length;
@@ -11,8 +11,9 @@ function solution(d, budget) {
     for(let i=0; i<sortD.length; i++){
         if(totalPrice > budget){
             totalPrice-=sortD[i];
-            priceArr.push(sortD[i]);
+        } else{
+            answer++;
         }
     }
-    return d.length-priceArr.length;
+    return answer;
 }
