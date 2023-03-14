@@ -1,15 +1,37 @@
-function solution(X, Y) {
-    let answer = ''
-    X = X.split("")
-    Y = Y.split("")
+function solution(X,Y){
+    let answer = [];
     
-    for(let i = 0 ; i < 10 ; i ++) {
-        const curX = X.filter(a => Number(a) === i).length
-        const curY = Y.filter(a => Number(a) === i).length
-        answer+=String(i).repeat(Math.min(curX, curY))
+    let countX = new Array(10).fill(0);
+    let countY = new Array(10).fill(0);
+    
+    const xArr = X.split("");
+    const yArr = Y.split("");
+    
+    xArr.forEach((item) => {
+        countX[item]++;
+    })
+        
+    yArr.forEach((item) => {
+        countY[item]++;
+    })
+    
+    
+    countX.forEach((item, index) => {
+        if(item !== 0 && countY[index] !== 0){
+            const min = Math.min(item, countY[index]);
+            
+            answer.push(String(index).repeat(min));
+        }
+    })
+    
+    
+    if(answer.length === 0){
+        return "-1";
     }
     
-    if(answer === '') return "-1"
-    if(Number(answer) === 0) return "0"
-    return answer.split("").sort((a,b) => Number(b)-Number(a)).join("")
+    if(Number(answer.join("")) === 0){
+        return "0";
+    }
+    
+    return answer.reverse().join("");
 }
