@@ -1,16 +1,11 @@
 function solution(n) {
-    let answer = [];
+    const answer = [];
 
-    for(let i=0; i<n; i++){
-        let makeArr = [];
-        for(let j=0; j<n; j++){
-            if(i === j){
-                makeArr.push(1);
-            }else{
-                makeArr.push(0)
-            }
-        }
-        answer.push(makeArr);
+    for(let i=0; i<n; i++) {
+        const row = new Array(n).fill(0);
+        row[i] = 1;
+        answer.push(row);
     }
+
     return answer;
 }
