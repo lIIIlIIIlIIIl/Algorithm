@@ -3,7 +3,8 @@ function solution(order) {
     for(let coffee of order){
         if(coffee.includes('cafelatte')){
             answer += 5000;
-        }else{
+        }
+        if(coffee === 'anything' || coffee.includes('americano')){
             answer += 4500;
         }
     }
