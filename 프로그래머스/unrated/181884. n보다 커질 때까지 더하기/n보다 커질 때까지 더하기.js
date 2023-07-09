@@ -1,9 +1,8 @@
 function solution(numbers, n) {
     let answer = 0;
-    
-    for(let i=0; i<numbers.length; i++){
-        if(answer > n) return answer;
-        if(answer <= n) answer += numbers[i];
-    }
+    numbers.forEach((num) => {
+        if(answer > n) return;
+        answer += num;
+    })
     return answer;
 }
