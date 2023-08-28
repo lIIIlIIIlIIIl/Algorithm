@@ -16,3 +16,16 @@ function solution(players, callings) {
     });
     return players;
 }
+
+// function solution(players, callings){
+//     const playersArr = [...players];
+
+//     callings.forEach((callingPlayer)=>{
+//         const callingPlayerIndex = playersArr.indexOf(callingPlayer);
+//         const prevPlayer = playersArr[callingPlayerIndex - 1]; 
+
+//         playersArr[callingPlayerIndex] = prevPlayer;
+//         playersArr[callingPlayerIndex - 1] = callingPlayer;
+//     })
+//     return playersArr;
+// }
