@@ -1,10 +1,10 @@
 function solution(n, m, section) {
   let answer = 0;
-  let max = 0;
+  let part = 0;
   section.forEach((s) => {
-    if (s > max) {
+    if (s > part) {
       answer++;
-      max = s + m - 1;
+      part = s + m - 1;
     }
   });
   return answer;
