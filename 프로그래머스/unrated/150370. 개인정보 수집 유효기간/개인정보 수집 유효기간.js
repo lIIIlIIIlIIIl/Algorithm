@@ -1,22 +1,20 @@
 function solution(today, terms, privacies) {
     const answer = [];
-    const expireDate = new Date(today);
-  
-    const termType = {};
+    const toDay = new Date(today);
+    const termMap = new Map();
 
-    terms.forEach((el) => {
-      const [type, term] = el.split(" ");
-      termType[type] = Number(term);
-    });
-  
-    privacies.forEach((el, idx) => {
-      const [date, type] = el.split(" ");
-      const checkDate = new Date(date);
-  
-      checkDate.setMonth(checkDate.getMonth() + termType[type]);
-  
-      if (checkDate <= expireDate) answer.push(idx + 1);
-    });
-  
+    terms.forEach((term)=>{
+        const [type, termMonth] = term.split(' ');
+        termMap.set(type, Number(termMonth));
+    })
+
+    privacies.forEach((pri, index) => {
+        const [date, type] = pri.split(' ');
+        const privacyDate = new Date(date);
+
+        privacyDate.setMonth(privacyDate.getMonth() + termMap.get(type));
+
+        if(privacyDate <= toDay) answer.push(index + 1);
+    })
     return answer;
-  }
+}
