@@ -1,21 +1,11 @@
-function returnCoke(reqCoke, coke, resCoke){
-    return coke * parseInt(resCoke / reqCoke);
-}
-
 function solution(a, b, n) {
-    let answer = 0 ;
-    
-    while(n >= a){
-        let returnBotle = returnCoke(a, b, n)
-        
-        answer += returnBotle;
-        n = returnBotle + (n % a);
+    let answer = 0;
+    while (n >= a) {
+        answer += parseInt(n / a) * b;
+        n = parseInt(n / a) * b + n % a;
     }
     return answer;
 }
-
-
-
 
 
 
