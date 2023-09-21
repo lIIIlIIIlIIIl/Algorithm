@@ -3,33 +3,42 @@
 
 */
 
-function solution(sizes){
-    const maxArr = [];
-    const minArr = [];
+// function solution(sizes){
+//     const maxArr = [];
+//     const minArr = [];
 
-    sizes.map((sizes) => {
-        let max, min;
+//     sizes.map((sizes) => {
+//         let max, min;
 
-        if(sizes[0] > sizes[1]){
-            max = sizes[0];
-            min = sizes[1];
-        }else{
-            max = sizes[1];
-            min = sizes[0];
-        }
+//         if(sizes[0] > sizes[1]){
+//             max = sizes[0];
+//             min = sizes[1];
+//         }else{
+//             max = sizes[1];
+//             min = sizes[0];
+//         }
 
-        maxArr.push(max);
-        minArr.push(min);
+//         maxArr.push(max);
+//         minArr.push(min);
+//     })
+//     maxArr.sort((a,b) => b-a);
+//     minArr.sort((a,b) => b-a);
+
+//     return maxArr[0]*minArr[0];
+// }
+
+
+
+function solution(sizes) {
+    const rotated = sizes.map(([w, h]) => w < h ? [h, w] : [w, h]);
+
+    let maxSize = [0, 0];
+    rotated.forEach(([w, h]) => {
+        if (w > maxSize[0]) maxSize[0] = w;
+        if (h > maxSize[1]) maxSize[1] = h;
     })
-    maxArr.sort((a,b) => b-a);
-    minArr.sort((a,b) => b-a);
-
-    return maxArr[0]*minArr[0];
+    return maxSize[0]*maxSize[1];
 }
-
-
-
-
 
 
 
