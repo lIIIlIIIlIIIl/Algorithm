@@ -1,20 +1,27 @@
+// function solution(d, budget) {
+//     let answer = 0;
+//     let sortD = d.sort((a,b) => a-b);
+//     let sumD = 0;
+
+//     sortD.forEach(element => {
+//         sumD += element;
+
+//         if(sumD <= budget){
+//             answer += 1;
+//         }
+//     });
+//     return answer;
+// }
+
+
+
 function solution(d, budget) {
-    let answer = 0;
-    let sortD = d.sort((a,b) => a-b);
-    let sumD = 0;
+    d.sort((a, b) => a - b);
 
-    sortD.forEach(element => {
-        sumD += element;
+    while (d.reduce((a, b) => (a + b), 0) > budget) d.pop();
 
-        if(sumD <= budget){
-            answer += 1;
-        }
-    });
-    return answer;
+    return d.length;
 }
-
-
-
 
 
 
